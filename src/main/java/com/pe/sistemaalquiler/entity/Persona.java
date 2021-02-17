@@ -1,11 +1,16 @@
 package com.pe.sistemaalquiler.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,5 +37,13 @@ public class Persona {
 
 	@Column(name = "ape_mat")
 	private String apellidoMaterno;
+
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "inquilino_id", referencedColumnName = "id")
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "persona", cascade = CascadeType.ALL)
+//	@PrimaryKeyJoinColumn
+	@JsonIgnore
+	private Inquilino inquilino;
 
 }
