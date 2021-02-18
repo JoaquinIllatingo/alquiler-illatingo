@@ -2,7 +2,6 @@ package com.pe.sistemaalquiler.repository.jdbc.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -18,8 +17,9 @@ public class ConsultaMapper implements RowMapper<ConsultaDto> {
 		obj.setNombrePersona(rs.getString(3));
 		obj.setApellidoPaterno(rs.getString(4));
 		obj.setFechaIngreso(rs.getDate(5));
-		obj.setFechaFinMensualidad(new Date(rs.getString(6)));
+		obj.setFechaFinMensualidad(rs.getDate(6));
 		obj.setFechaPago(rs.getDate(7));
+		
 
 		return obj;
 	}

@@ -1,10 +1,7 @@
 package com.pe.sistemaalquiler.service;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class ConsultaService {
 		Period diff = Period.between(fechaAux, LocalDate.now());
 		diff.getDays();
 
-		if (diff.getDays() < 1) {
+		if (diff.getDays() > 1 && diff.getDays() <=30) {
 			return 1;
 		} else if (diff.getDays() > 30 && diff.getDays() <= 60) {
 			return 2;
@@ -57,12 +54,21 @@ public class ConsultaService {
 
 	public LocalDate convertToLocalDateViaInstant(Date input) {
 
-		Instant instant = input.toInstant();
-		ZonedDateTime zdt = instant.atZone(ZoneId.systemDefault());
+//		LocalDate d1 = LocalDate.of(input.getYear(), input.getMonth(), input.getDay());
 
-		LocalDate date = zdt.toLocalDate();
+		LocalDate myDate = LocalDate.parse(input.toString());
 
-		return date;
+		return myDate;
+//		LocalDate.
+
+//		Instant instant = input.toInstant();
+//		ZonedDateTime zdt = instant.atZone(ZoneId.systemDefault());
+
+//		LocalDate date = zdt.toLocalDate();
+
+//		LocalDate date = input.;
+
+//		return date;
 //		return dateToConvert.toInstant()
 //				.atZone(ZoneId.systemDefault()).toLocalDate();
 	}
