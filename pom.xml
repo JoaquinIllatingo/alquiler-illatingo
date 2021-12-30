@@ -8,7 +8,7 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pe</groupId>
+	<groupId>com.pe.sistemaalquiler</groupId>
 	<artifactId>sistema-alquiler</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sistema-alquiler</name>
@@ -37,8 +37,13 @@
         <dependency>
 		   <groupId>org.projectlombok</groupId>
 		   <artifactId>lombok</artifactId>
-		   <version>1.18.8</version>
+			<version>1.18.20</version>
 		   <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
         <!-- PostgreSQL -->
